@@ -2,18 +2,18 @@ import React, { useState } from "react";
 
 const MemoryCard = () => {
   const [images, setImages] = useState([
-    "images/img1.jpg",
-    "images/img2.png",
-    "images/img3.jpeg",
-    "images/img4.jpg",
-    "images/img5.jpg",
-    "images/img6.jpg",
-    "images/img7.jpg",
-    "images/img8.jpg",
-    "images/img9.jpg",
-    "images/img10.jpg",
-    "images/img11.jpg",
-    "images/img12.jpg",
+    ["images/img1.jpg", "Seth Rogan", "Actor"],
+    ["images/img2.png", "Joe Rogan", "Comedian, Commentator"],
+    ["images/img3.jpeg", "Tom Hanks", "Actor"],
+    ["images/img4.jpg", "Dwanye Johnson", "Actor, Pro Wrestler"],
+    ["images/img5.jpg", "Jennifer Lawrence", "Actress"],
+    ["images/img6.jpg", "Chadwick Boseman", "Actor"],
+    ["images/img7.jpg", "Natalie Portman", "Actress"],
+    ["images/img8.jpg", "Emma Stone", "Actress"],
+    ["images/img9.jpg", "Jonah Hill", "Actor"],
+    ["images/img10.jpg", "Michael Cera", "Actor"],
+    ["images/img11.jpg", "Adam Sandler", "Actor, Comedian"],
+    ["images/img12.jpg", "Will Smith", "Actor, Rapper"],
   ]);
 
   const randomOrder = () => {
@@ -35,28 +35,32 @@ const MemoryCard = () => {
     setImages(array);
   };
 
+  let test = (h) => {
+    console.log(h);
+  };
+
   let key = 0;
 
   return (
     <div>
       <h1>Memory card</h1>
-      {images.map((image) => (
-        <div key={key++}>
-          <div
-            className="celeb-image"
-            style={{
-              height: "200px",
-              width: "175px",
-              border: "3px solid blue",
-              backgroundImage: `url(${image})`,
-              backgroundRepeat: "no-repeat, repeat",
-              backgroundSize: "cover",
-              backgroundPosition: "center center",
-            }}
-            key={key++}
-          ></div>
-        </div>
-      ))}
+
+      <div className="celeb-grid">
+        {images.map((image) => (
+          <div key={key++} className="card-container">
+            <div
+              className="celeb-image"
+              style={{
+                backgroundImage: `url(${image[0]})`,
+              }}
+              onClick={test(key)}
+            ></div>
+            <h3>Name: {image[1]}</h3>
+            <h4>Occupation: {image[2]}</h4>
+          </div>
+        ))}
+      </div>
+
       <button onClick={randomOrder}>Random</button>
     </div>
   );
