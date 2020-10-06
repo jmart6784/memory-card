@@ -1,3 +1,6 @@
+Practice with React functional components and hooks, part of the Odin project:
+https://www.theodinproject.com/courses/javascript/lessons/memory-card
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
