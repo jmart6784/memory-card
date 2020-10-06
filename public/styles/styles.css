@@ -145,6 +145,40 @@ h5,
 h6,
 p {
   color: white;
+  font-family: "Oxygen", sans-serif;
+}
+
+#game-title {
+  background-color: #750000;
+  padding: 10px 0 10px 0;
+  text-align: center;
+}
+
+.game-description {
+  text-align: center;
+  padding: 15px 0 15px 0;
+}
+
+.score-div {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -webkit-column-gap: 20px;
+          column-gap: 20px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+  padding: 20px;
+  background-color: #750000;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .celeb-grid {
@@ -157,8 +191,8 @@ p {
           align-items: center;
   justify-items: center;
   row-gap: 20px;
-  -webkit-column-gap: 20px;
-          column-gap: 20px;
+  -webkit-column-gap: 10px;
+          column-gap: 10px;
 }
 
 .celeb-image {
@@ -167,6 +201,7 @@ p {
   background-repeat: no-repeat, repeat;
   background-size: cover;
   background-position: center center;
+  margin: 0 auto;
 }
 
 .card-container {
@@ -179,6 +214,16 @@ p {
           flex-direction: column;
   -ms-flex-line-pack: center;
       align-content: center;
-  justify-self: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #750000;
+  padding: 20px;
+  max-height: 250px;
+}
+
+.card-info {
+  margin: 5px 0 5px 0;
+  text-align: center;
 }
 /*# sourceMappingURL=styles.css.map */

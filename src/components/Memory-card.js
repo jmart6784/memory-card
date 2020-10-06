@@ -39,7 +39,6 @@ const MemoryCard = () => {
   };
 
   let handleChoice = (guess) => {
-    console.log(guess);
     let guessTemp = guesses;
 
     if (guessTemp.includes(guess)) {
@@ -62,9 +61,16 @@ const MemoryCard = () => {
 
   return (
     <div>
-      <h1>Memory card</h1>
-      <h2>Score: {score}</h2>
-      <h2>Top Score: {topScore}</h2>
+      <h1 id="game-title">Memory card</h1>
+      <h2 className="game-description">
+        Click on celebrities to raise your score but don't click any more than
+        once!
+      </h2>
+
+      <div className="score-div">
+        <h2 className="score-count">Score: {score}</h2>
+        <h2>Top Score: {topScore}</h2>
+      </div>
 
       <div className="celeb-grid">
         {images.map((image) => (
@@ -79,8 +85,8 @@ const MemoryCard = () => {
                 backgroundImage: `url(${image[0]})`,
               }}
             ></div>
-            <h3>Name: {image[1]}</h3>
-            <h5>Occupation: {image[2]}</h5>
+            <h3 className="card-info">Name: {image[1]}</h3>
+            <h5 className="card-info">Occupation: {image[2]}</h5>
           </div>
         ))}
       </div>
