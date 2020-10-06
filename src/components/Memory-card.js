@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 
 const MemoryCard = () => {
+  const [guesses, setGuesses] = useState([]);
+  const [score, setScore] = useState(0);
+  const [topScore, setTopScore] = useState(0);
   const [images, setImages] = useState([
     ["images/img1.jpg", "Seth Rogan", "Actor"],
     ["images/img2.png", "Joe Rogan", "Comedian, Commentator"],
@@ -35,8 +38,24 @@ const MemoryCard = () => {
     setImages(array);
   };
 
-  let test = (h) => {
-    console.log(h);
+  let handleChoice = (guess) => {
+    console.log(guess);
+    let guessTemp = guesses;
+
+    if (guessTemp.includes(guess)) {
+      randomOrder();
+      setGuesses([]);
+      if (score > topScore) {
+        setTopScore(score);
+        setScore(0);
+      } else {
+        setScore(0);
+      }
+    } else {
+      randomOrder();
+      setScore(score + 1);
+      setGuesses(guessTemp.concat(guess));
+    }
   };
 
   let key = 0;
@@ -44,24 +63,27 @@ const MemoryCard = () => {
   return (
     <div>
       <h1>Memory card</h1>
+      <h2>Score: {score}</h2>
+      <h2>Top Score: {topScore}</h2>
 
       <div className="celeb-grid">
         {images.map((image) => (
-          <div key={key++} className="card-container">
+          <div
+            onClick={() => handleChoice(image[1])}
+            key={key++}
+            className="card-container"
+          >
             <div
               className="celeb-image"
               style={{
                 backgroundImage: `url(${image[0]})`,
               }}
-              onClick={test(key)}
             ></div>
             <h3>Name: {image[1]}</h3>
-            <h4>Occupation: {image[2]}</h4>
+            <h5>Occupation: {image[2]}</h5>
           </div>
         ))}
       </div>
-
-      <button onClick={randomOrder}>Random</button>
     </div>
   );
 };
